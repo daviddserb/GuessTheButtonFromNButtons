@@ -26,22 +26,20 @@
     <script>
       function createButtons() {
         const howManyButtons = document.getElementById("inputNr").value; //salvez val. nr. din input in jvs. daca pun in afara functiei nu merge, de ce???
-        const luckyNr = Math.floor(Math.random() * howManyButtons) + 1;
+        var luckyNr = Math.floor(Math.random() * howManyButtons) + 1;
 
         for (var i = 1; i <= howManyButtons; ++i) {
           let btn = document.createElement("button"); //creez butoane
           btn.innerHTML = "Button " + i; //text-ul din buton
+          btn.setAttribute("id", i); //atribuim fiecarui buton creat, o valoare
           document.body.appendChild(btn); //punem butoanele in <body>
-          btn.setAttribute("btnId", i);
-          if (i == howManyButtons) { //dupa ce s-au creat toate butoanele, verific butonul
-            btn.addEventListener("click", function() {
-            if (btnId == luckyNr) {
-                 alert("You pressed the winning button!");
-             } else {
-                 alert("You weren't lucky, try again.");
-             }
-            })
-          }
+          btn.onclick = function () {
+            if (this.id == luckyNr) {
+              alert("You pressed the winning button!");
+            } else {
+              alert("You weren't lucky, try again.");
+            }
+          };
         }
       }
     </script>
