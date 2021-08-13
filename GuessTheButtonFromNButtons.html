@@ -25,13 +25,13 @@
 
     <script>
       function createButtons() {
-        const howManyButtons = document.getElementById("inputNr").value; //salvez val. nr. din input in jvs. daca pun in afara functiei nu merge, de ce???
+        const howManyButtons = document.getElementById("inputNr").value; //Salvez val. nr. din input din html in jvs. Daca pun in afara functiei nu merge, de ce???
         var luckyNr = Math.floor(Math.random() * howManyButtons) + 1;
 
         for (var i = 1; i <= howManyButtons; ++i) {
-          let btn = document.createElement("button"); //creez butoane
+          let btn = document.createElement("button"); //creez butoanele
           btn.innerHTML = "Button " + i; //text-ul din buton
-          btn.setAttribute("id", i); //atribuim fiecarui buton creat, o valoare
+          btn.setAttribute("id", i); //atribuim o valoare, fiecarui buton creat
           document.body.appendChild(btn); //punem butoanele in <body>
           btn.onclick = function () {
             if (this.id == luckyNr) {
